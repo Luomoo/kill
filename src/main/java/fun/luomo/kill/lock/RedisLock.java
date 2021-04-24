@@ -25,7 +25,6 @@ import java.util.concurrent.TimeUnit;
  * 该方案在 Redis 官方 SET 命令页有详细介绍。
  * http://doc.redisfans.com/string/set.html
  * <p>
- * 在介绍该分布式锁设计之前，我们先来看一下在从 Redis 2.6.12 开始 SET 提供的新特性，
  * 命令 SET key value [EX seconds] [PX milliseconds] [NX|XX]，其中：
  * <p>
  * EX seconds — 以秒为单位设置 key 的过期时间；
@@ -40,9 +39,6 @@ import java.util.concurrent.TimeUnit;
  * 如果服务器返回 OK ，那么这个客户端获得锁。
  * 如果服务器返回 NIL ，那么客户端获取锁失败，可以在稍后再重试。
  *
- * @author yuhao.wangwang
- * @version 1.0
- * @date 2017年11月3日 上午10:21:27
  */
 public class RedisLock {
 
@@ -279,11 +275,6 @@ public class RedisLock {
 
     /**
      * 获取锁状态
-     *
-     * @return
-     * @Title: isLock
-     * @Description: TODO
-     * @author yuhao.wang
      */
     public boolean isLock() {
 

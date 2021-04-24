@@ -7,13 +7,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.ClassPathResource;
 
-/**
- * @Classname EhcacheConfig
- * @Description TODO
- * @Author Jack
- * Date 2020/9/4 15:02
- * Version 1.0
- */
 @Configuration
 public class EhcacheConfig {
 

@@ -8,13 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.io.IOException;
 
-/**
- * @Classname RedssonConfig
- * @Description TODO
- * @Author Jack
- * Date 2020/9/16 20:47
- * Version 1.0
- */
+
 @Configuration
 public class RedissonConfig {
 
