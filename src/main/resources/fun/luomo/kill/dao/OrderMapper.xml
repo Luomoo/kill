@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fun.luomo.kill.dao.OrderMapper">
+    <resultMap id="BaseResultMap" type="fun.luomo.kill.bean.model.OrderKill">
+        <!--@mbg.generated-->
+        <!--@Table tp_order_kill-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="userid" jdbcType="INTEGER" property="userid"/>
+        <result column="killgoosid" jdbcType="INTEGER" property="killgoosid"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, userid, killgoosid
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from tp_order_kill
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbg.generated-->
+        delete
+        from tp_order_kill
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="fun.luomo.kill.bean.model.OrderKill"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into tp_order_kill (userid, killgoosid)
+        values (#{userid,jdbcType=INTEGER}, #{killgoosid,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="fun.luomo.kill.bean.model.OrderKill"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into tp_order_kill
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userid != null">
+                userid,
+            </if>
+            <if test="killgoosid != null">
+                killgoosid,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userid != null">
+                #{userid,jdbcType=INTEGER},
+            </if>
+            <if test="killgoosid != null">
+                #{killgoosid,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="fun.luomo.kill.bean.model.OrderKill">
+        <!--@mbg.generated-->
+        update tp_order_kill
+        <set>
+            <if test="userid != null">
+                userid = #{userid,jdbcType=INTEGER},
+            </if>
+            <if test="killgoosid != null">
+                killgoosid = #{killgoosid,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="fun.luomo.kill.bean.model.OrderKill">
+        <!--@mbg.generated-->
+        update tp_order_kill
+        set userid     = #{userid,jdbcType=INTEGER},
+            killgoosid = #{killgoosid,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <select id="queryCountByUserId" resultType="java.lang.Integer">
+        select count(*)
+        from tp_order_kill
+        where userid = #{userId,jdbcType=VARCHAR}
+    </select>
+</mapper>

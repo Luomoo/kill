@@ -1,0 +1,31 @@
+server:
+  port: 9001
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.216.128:3307/kill_demo?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+  redis:
+    host: 192.168.216.128
+    port: 6379
+    password: zxcasdqwe1234567890
+    timeout: 10000000
+    jedis:
+      pool:
+        max-wait: -1
+        max-active: 100
+        max-idle: 100
+        min-idle: 10
+  cache:
+    redis:
+      use-key-prefix: true
+      time-to-live: 1d
+mybatis:
+  mapper-locations: classpath:fun/luomo/kill/dao/*.xml
+  type-aliases-package: fun.luomo.kill.model
+  configuration:
+    map-underscore-to-camel-case: on #采用驼峰标识
+#logging:
+#  level:
+#    fun.luomo.kill.dao: debug
+
